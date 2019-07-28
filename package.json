@@ -1,0 +1,87 @@
+{
+  "name": "@alkafinance/react-native-keyboard-aware-scroll-view",
+  "version": "0.0.0",
+  "description": "# TODO",
+  "keywords": [
+    "react native",
+    "keyboard",
+    "alka"
+  ],
+  "homepage": "https://github.com/alkafinance/react-native-keyboard-aware-scroll-view#readme",
+  "bugs": {
+    "url": "https://github.com/alkafinance/react-native-keyboard-aware-scroll-view/issues"
+  },
+  "license": "MIT",
+  "author": "Ayan Yenbekbay <ayan@alka.app>",
+  "files": [
+    "src/",
+    "dist/"
+  ],
+  "main": "src/index.js",
+  "typings": "dist/index.d.ts",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alkafinance/react-native-keyboard-aware-scroll-view.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js,.ts,.tsx --cache ."
+  },
+  "prettier": {
+    "bracketSpacing": false,
+    "jsxBracketSameLine": true,
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e",
+      "pre-push": "yarn test"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,ts,tsx,json,yml,yaml}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.{js,ts,tsx}": [
+      "eslint --ext .js,.ts,.tsx --cache --fix",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@alkafinance/eslint-config": "^1.0.1",
+    "@alkafinance/eslint-config-react": "^1.0.0",
+    "@alkafinance/eslint-config-typescript": "^1.0.0",
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "@types/react": "^16.8.23",
+    "@types/react-native": "^0.60.2",
+    "eslint": "5.10.0",
+    "husky": "^3.0.1",
+    "lint-staged": "^9.2.1",
+    "prettier": "^1.18.2",
+    "react": "^16.8.6",
+    "react-native": "^0.60.4",
+    "typescript": "^3.5.3",
+    "utility-types": "^3.7.0"
+  }
+}

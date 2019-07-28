@@ -1,0 +1,20 @@
+# macOS
+**/.DS_Store
+
+# Node.js
+**/node_modules/
+**/.yarn-integrity
+
+# Logs
+/logs/
+**/*.log
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+
+# Compilation artifacts
+/dist/
+/example/.expo/
+
+# ESLint
+/.eslintcache

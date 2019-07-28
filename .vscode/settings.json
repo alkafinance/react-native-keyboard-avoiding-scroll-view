@@ -1,0 +1,69 @@
+{
+  "editor.formatOnSave": false,
+  "editor.insertSpaces": true,
+  "editor.rulers": [80],
+  "editor.tabSize": 2,
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": true
+  },
+  "[yaml]": {
+    "editor.formatOnSave": true
+  },
+
+  "files.exclude": {
+    "**/.git/": true,
+    "**/.DS_Store": true,
+    ".eslintcache": true
+  },
+  "search.exclude": {
+    "**/node_modules/": true
+  },
+
+  "eslint.nodePath": "./node_modules",
+  "eslint.options": {
+    "extensions": [".js", ".ts", ".tsx"],
+    "rules": {
+      "padding-line-between-statements": "off"
+    }
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "javascript.implicitProjectConfig.checkJs": true,
+  "javascript.suggestionActions.enabled": false,
+  "javascript.validate.enable": true,
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.format.enable": false,
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.preferences.renameShorthandProperties": true,
+
+  "emmet.showExpandedAbbreviation": "never"
+}
