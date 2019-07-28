@@ -1,0 +1,58 @@
+version: 2.1
+
+commands:
+  yarn_install:
+    description: Install Javascript dependencies using Yarn. This command correctly configures the cache for any number of package.json and yarn.lock files.
+    steps:
+      - run:
+          name: Create cache checksum file
+          command: |
+            mkdir -p ~/.tmp/checksumfiles
+            find . -type f -name 'package.json' -not -path "*node_modules*" -exec cat {} + >> ~/.tmp/checksumfiles/package.json
+            find . -type f -name 'yarn.lock' -not -path "*node_modules*" -exec cat {} + >> ~/.tmp/checksumfiles/yarn.lock
+      - restore_cache:
+          name: Restore Yarn cache
+          keys:
+            - yarn-cache-{{ arch }}-{{ checksum "~/.tmp/checksumfiles/package.json" }}-{{ checksum "~/.tmp/checksumfiles/yarn.lock" }}-{{ .Environment.CACHE_VERSION }}
+      - run:
+          name: Install dependencies with Yarn
+          command: yarn install --non-interactive --cache-folder ~/.cache/yarn
+      - save_cache:
+          name: Save Yarn cache
+          paths:
+            - ~/.cache/yarn
+          key: |
+            yarn-cache-{{ arch }}-{{ checksum "~/.tmp/checksumfiles/package.json" }}-{{ checksum "~/.tmp/checksumfiles/yarn.lock" }}-{{ .Environment.CACHE_VERSION }}
+executors:
+  node_10:
+    docker:
+      - image: circleci/node:10
+    environment:
+      - PATH: '/opt/yarn/yarn-v1.5.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+
+jobs:
+  test_node_10:
+    executor: node_10
+    steps:
+      - checkout
+      - yarn_install
+      - run:
+          name: Run tests
+          command: yarn test
+  release:
+    executor: node_10
+    steps:
+      - checkout
+      - yarn_install
+      - run:
+          name: Release the packages
+          command: yarn semantic-release
+
+workflows:
+  version: 2
+  test_and_release:
+    jobs:
+      - test_node_10
+      - release:
+          requires:
+            - test_node_10

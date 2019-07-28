@@ -1,10 +1,11 @@
 {
   "name": "@alkafinance/react-native-keyboard-aware-scroll-view",
-  "version": "0.0.0",
-  "description": "# TODO",
+  "version": "0.0.0-development",
+  "description": "A collection of React Native components that respond to the visibility of on-screen keyboard and automatically scroll to the currently focused text input",
   "keywords": [
     "react native",
     "keyboard",
+    "scrollview",
     "alka"
   ],
   "homepage": "https://github.com/alkafinance/react-native-keyboard-aware-scroll-view#readme",
@@ -32,9 +33,11 @@
   "scripts": {
     "typecheck": "tsc --noEmit --pretty",
     "lint": "eslint --ext .js,.ts,.tsx --cache .",
+    "test": "run-p --silent --print-label typecheck lint",
     "prepare": "bob build",
     "bootstrap": "yarn --cwd example && yarn",
-    "example": "yarn --cwd example"
+    "example": "yarn --cwd example",
+    "semantic-release": "semantic-release"
   },
   "prettier": {
     "bracketSpacing": false,
@@ -49,7 +52,8 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -e"
+      "commit-msg": "commitlint -e",
+      "pre-push": "yarn test"
     }
   },
   "lint-staged": {
@@ -95,9 +99,11 @@
     "eslint": "5.10.0",
     "husky": "^3.0.1",
     "lint-staged": "^9.2.1",
+    "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
     "react": "^16.8.6",
     "react-native": "^0.60.4",
+    "semantic-release": "^15.13.18",
     "typescript": "^3.5.3",
     "utility-types": "^3.7.0"
   }
