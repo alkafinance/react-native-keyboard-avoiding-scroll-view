@@ -23,11 +23,11 @@ import {KeyboardAwareScrollView} from '@alkafinance/react-native-keyboard-aware-
 
 function MyComponent() {
   return (
-    <KeyboardAwareScrollView>
+    <KeyboardAwareScrollView stickyFooter={<Button />}>
       <TextInput />
       <TextInput />
-      <Button />
-    </TouchableHighlight>
+      <TextInput />
+    </KeyboardAwareScrollView>
   )
 }
 ```
