@@ -17,8 +17,10 @@
     "src/",
     "dist/"
   ],
-  "main": "src/index.js",
-  "typings": "dist/index.d.ts",
+  "main": "dist/commonjs/index.js",
+  "module": "dist/module/index.js",
+  "react-native": "src/index.js",
+  "types": "dist/typescript/src/index.d.ts",
   "sideEffects": false,
   "repository": {
     "type": "git",
@@ -28,7 +30,11 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "lint": "eslint --ext .js,.ts,.tsx --cache ."
+    "typecheck": "tsc --noEmit --pretty",
+    "lint": "eslint --ext .js,.ts,.tsx --cache .",
+    "prepare": "bob build",
+    "bootstrap": "yarn --cwd example && yarn",
+    "example": "yarn --cwd example"
   },
   "prettier": {
     "bracketSpacing": false,
@@ -43,8 +49,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -e",
-      "pre-push": "yarn test"
+      "commit-msg": "commitlint -e"
     }
   },
   "lint-staged": {
@@ -62,6 +67,17 @@
       "@commitlint/config-conventional"
     ]
   },
+  "@react-native-community/bob": {
+    "source": "src",
+    "output": "dist",
+    "targets": [
+      "module",
+      "typescript"
+    ],
+    "files": [
+      "src/"
+    ]
+  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
@@ -73,6 +89,7 @@
     "@alkafinance/eslint-config-typescript": "^1.0.0",
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
+    "@react-native-community/bob": "^0.6.1",
     "@types/react": "^16.8.23",
     "@types/react-native": "^0.60.2",
     "eslint": "5.10.0",

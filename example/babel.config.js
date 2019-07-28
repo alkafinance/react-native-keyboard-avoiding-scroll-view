@@ -1,5 +1,3 @@
-// @ts-ignore
-
 module.exports = api => {
   api.cache(true);
 

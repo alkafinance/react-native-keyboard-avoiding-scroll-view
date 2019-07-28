@@ -1,32 +1,22 @@
 {
   "compilerOptions": {
-    // basic
-    "allowJs": true,
-    "checkJs": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "preserve",
     "lib": ["es2017", "esnext.asynciterable"],
     "module": "esnext",
-    "target": "esnext",
-
-    // strict type-checking
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
+    "noImplicitReturns": true,
     "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-
-    // additional checks
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-
-    // module resolution
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true
+    "target": "esnext"
   },
   "include": ["./src/**/*"]
 }
