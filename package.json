@@ -1,7 +1,7 @@
 {
   "name": "@alkafinance/react-native-keyboard-aware-scroll-view",
   "version": "0.0.0-development",
-  "description": "A collection of React Native components that respond to the visibility of on-screen keyboard and automatically scroll to the currently focused text input",
+  "description": "Extension to React Native ScrollView that prevents inputs from being covered by the keyboard",
   "keywords": [
     "react native",
     "keyboard",
