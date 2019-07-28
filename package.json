@@ -34,9 +34,9 @@
     "typecheck": "tsc --noEmit --pretty",
     "lint": "eslint --ext .js,.ts,.tsx --cache .",
     "test": "run-p --silent --print-label typecheck lint",
-    "prepare": "bob build",
     "bootstrap": "yarn --cwd example && yarn",
     "example": "yarn --cwd example",
+    "presemantic-release": "bob build",
     "semantic-release": "semantic-release"
   },
   "prettier": {
