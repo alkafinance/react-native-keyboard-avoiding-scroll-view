@@ -16,7 +16,7 @@ commands:
             - yarn-cache-{{ arch }}-{{ checksum "~/.tmp/checksumfiles/package.json" }}-{{ checksum "~/.tmp/checksumfiles/yarn.lock" }}-{{ .Environment.CACHE_VERSION }}
       - run:
           name: Install dependencies with Yarn
-          command: yarn install --non-interactive --cache-folder ~/.cache/yarn
+          command: yarn install --non-interactive --cache-folder ~/.cache/yarn && yarn --cwd example install --non-interactive --cache-folder ~/.cache/yarn
       - save_cache:
           name: Save Yarn cache
           paths:
