@@ -18,10 +18,10 @@
     "src/",
     "dist/"
   ],
-  "main": "dist/commonjs/index.js",
+  "main": "dist/module/index.js",
   "module": "dist/module/index.js",
   "react-native": "src/index.js",
-  "types": "dist/typescript/src/index.d.ts",
+  "types": "dist/typescript/index.d.ts",
   "sideEffects": false,
   "repository": {
     "type": "git",
