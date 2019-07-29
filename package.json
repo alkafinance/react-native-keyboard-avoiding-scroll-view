@@ -15,13 +15,11 @@
   "license": "MIT",
   "author": "Ayan Yenbekbay <ayan@alka.app>",
   "files": [
-    "src/",
     "dist/"
   ],
-  "main": "dist/module/index.js",
-  "module": "dist/module/index.js",
-  "react-native": "src/index.js",
-  "types": "dist/typescript/index.d.ts",
+  "main": "dist/index.js",
+  "react-native": "dist/index.js",
+  "types": "dist/index.d.ts",
   "sideEffects": false,
   "repository": {
     "type": "git",
@@ -35,8 +33,9 @@
     "lint": "eslint --ext .js,.ts,.tsx --cache .",
     "test": "run-p --silent --print-label typecheck lint",
     "bootstrap": "yarn --cwd example && yarn",
+    "build": "yarn tsc --pretty --declaration --outDir dist",
     "example": "yarn --cwd example",
-    "presemantic-release": "bob build",
+    "presemantic-release": "yarn build",
     "semantic-release": "semantic-release"
   },
   "prettier": {
@@ -71,17 +70,6 @@
       "@commitlint/config-conventional"
     ]
   },
-  "@react-native-community/bob": {
-    "source": "src",
-    "output": "dist",
-    "targets": [
-      "module",
-      "typescript"
-    ],
-    "files": [
-      "src/"
-    ]
-  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
@@ -93,7 +81,6 @@
     "@alkafinance/eslint-config-typescript": "^1.0.0",
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
-    "@react-native-community/bob": "^0.6.1",
     "@types/react": "^16.8.23",
     "@types/react-native": "^0.60.2",
     "eslint": "5.10.0",

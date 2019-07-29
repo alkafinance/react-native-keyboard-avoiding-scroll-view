@@ -2,7 +2,7 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "preserve",
+    "jsx": "react-native",
     "lib": ["es2017", "esnext.asynciterable"],
     "module": "esnext",
     "moduleResolution": "node",
