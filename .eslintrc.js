@@ -9,6 +9,11 @@ module.exports = {
   rules: {
     // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin
     '@typescript-eslint/no-magic-numbers': 'off',
+    // https://github.com/benmosher/eslint-plugin-import
+    'import/extensions': 'off',
+    'import/no-unresolved': 'off',
+    // https://github.com/Intellicode/eslint-plugin-react-native
+    'react-native/no-color-literals': 'off',
   },
   overrides: [
     {

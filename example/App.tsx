@@ -1,7 +1,7 @@
-import {KeyboardAvoidingScrollView} from 'react-native-keyboard-avoiding-scroll-view';
 import React from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {Button, Colors, TextInput, Title} from 'react-native-paper';
+import {KeyboardAvoidingScrollView} from '../src';
 
 export default function App() {
   return (
