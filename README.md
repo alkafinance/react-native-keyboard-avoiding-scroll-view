@@ -38,7 +38,6 @@ In addition to the regular `ScrollView`, `FlatList` or `SectionList` props, you 
 
 ### Props
 
-- [`stickyHeader`](#stickyHeader)
 - [`stickyFooter`](#stickyFooter)
 - [`containerStyle`](#containerStyle)
 
@@ -47,16 +46,6 @@ In addition to the regular `ScrollView`, `FlatList` or `SectionList` props, you 
 # Reference
 
 ## Props
-
-### `stickyHeader`
-
-Used to display a persisted view above the scrollable content.
-
-| Type              | Required |
-| ----------------- | -------- |
-| `React.ReactNode` | No       |
-
----
 
 ### `stickyFooter`
 

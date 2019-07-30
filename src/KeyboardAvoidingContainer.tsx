@@ -29,7 +29,6 @@ const {height: SCREEN_HEIGHT} = Dimensions.get('window');
 const KEYBOARD_PADDING = 48;
 
 export interface ExternalKeyboardAvoidingContainerProps {
-  stickyHeader?: React.ReactNode;
   stickyFooter?: React.ReactNode;
   containerStyle?: StyleProp<ViewStyle>;
 }
@@ -50,7 +49,6 @@ export interface KeyboardAvoidingContainerProps<
 
 export const KeyboardAvoidingContainer = genericMemo(
   <TScrollViewProps extends ScrollViewProps>({
-    stickyHeader,
     stickyFooter,
     containerStyle,
     ScrollViewComponent,
@@ -61,7 +59,6 @@ export const KeyboardAvoidingContainer = genericMemo(
   }: KeyboardAvoidingContainerProps<TScrollViewProps>) => {
     return (
       <SafeAreaView style={[styles.container, containerStyle]}>
-        {stickyHeader}
         <ScrollViewComponent ref={scrollViewRef} {...scrollViewProps} />
         {stickyFooter && (
           <View ref={stickyFooterRef} {...stickyFooterProps}>
@@ -76,7 +73,6 @@ export const KeyboardAvoidingContainer = genericMemo(
 export function useKeyboardAvoidingContainerProps<
   TScrollViewProps extends ScrollViewProps
 >({
-  stickyHeader,
   stickyFooter,
   containerStyle,
 
@@ -397,7 +393,6 @@ export function useKeyboardAvoidingContainerProps<
   );
 
   return {
-    stickyHeader,
     stickyFooter,
     containerStyle,
     scrollViewProps,
