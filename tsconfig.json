@@ -18,5 +18,5 @@
     "strictPropertyInitialization": true,
     "target": "esnext"
   },
-  "include": ["./src/**/*"]
+  "include": ["./@types/**/*", "./src/**/*"]
 }

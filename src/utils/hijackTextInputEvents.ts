@@ -1,13 +1,19 @@
 // @ts-ignore: internal module
 import TextInputState from 'react-native/Libraries/Components/TextInput/TextInputState';
+import {EventEmitter} from './EventEmitter';
 
-export function hijackTextInputEvents({
-  onFocusTextInput,
-  onBlurTextInput,
-}: {
-  onFocusTextInput?: (focusedTextInputId: number) => void;
-  onBlurTextInput?: (focusedTextInputId: number) => void;
-}) {
+interface TextInputEvents {
+  textInputDidFocus: (focusedTextInputId: number) => void;
+  textInputDidBlur: (focusedTextInputId: number) => void;
+}
+
+let textInputEvents: EventEmitter<TextInputEvents> | null = null;
+
+export function hijackTextInputEvents() {
+  if (textInputEvents) return textInputEvents;
+
+  textInputEvents = new EventEmitter();
+
   const originalFocusTextInput = TextInputState.focusTextInput.bind(
     TextInputState,
   );
@@ -25,10 +31,11 @@ export function hijackTextInputEvents({
       focusedTextInputId !== null
     ) {
       currentlyFocusedTextInputId = focusedTextInputId;
-      if (onFocusTextInput) onFocusTextInput(focusedTextInputId);
+      if (textInputEvents) {
+        textInputEvents.emit('textInputDidFocus', focusedTextInputId);
+      }
     }
   };
-
   TextInputState.blurTextInput = (focusedTextInputId: number | null) => {
     originalBlurTextInput(focusedTextInputId);
 
@@ -37,14 +44,11 @@ export function hijackTextInputEvents({
       focusedTextInputId !== null
     ) {
       currentlyFocusedTextInputId = null;
-      if (onBlurTextInput) onBlurTextInput(focusedTextInputId);
+      if (textInputEvents) {
+        textInputEvents.emit('textInputDidBlur', focusedTextInputId);
+      }
     }
   };
 
-  return {
-    remove: () => {
-      TextInputState.focusTextInput = originalFocusTextInput;
-      TextInputState.blurTextInput = originalBlurTextInput;
-    },
-  };
+  return textInputEvents;
 }

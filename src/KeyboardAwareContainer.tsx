@@ -285,12 +285,14 @@ export function useKeyboardAwareContainerProps<
   }, [updateOffsets]);
 
   useEffect(() => {
-    const sub = hijackTextInputEvents({
-      // We watch for the switch between two text inputs and update offsets
-      // accordingly.
-      // A switch between two text inputs happens when a keyboard is shown
-      // and another text input is currently being focused on.
-      onFocusTextInput: newFocusedTextInputNodeHandle => {
+    const textInputEvents = hijackTextInputEvents();
+    // We watch for the switch between two text inputs and update offsets
+    // accordingly.
+    // A switch between two text inputs happens when a keyboard is shown
+    // and another text input is currently being focused on.
+    const sub = textInputEvents.addListener(
+      'textInputDidFocus',
+      newFocusedTextInputNodeHandle => {
         requestAnimationFrame(async () => {
           if (
             !keyboardLayoutRef.current ||
@@ -315,7 +317,7 @@ export function useKeyboardAwareContainerProps<
           updateOffsets();
         });
       },
-    });
+    );
 
     return () => {
       sub.remove();
@@ -348,13 +350,13 @@ export function useKeyboardAwareContainerProps<
     const flatStyleProp = StyleSheet.flatten(styleProp) || {};
 
     let scrollViewBottomInsetProp = 0;
-    if ('paddingBottom' in flatStyleProp) {
-      if (typeof flatStyleProp.paddingBottom === 'number') {
-        scrollViewBottomInsetProp = flatStyleProp.paddingBottom;
+    if ('marginBottom' in flatStyleProp) {
+      if (typeof flatStyleProp.marginBottom === 'number') {
+        scrollViewBottomInsetProp = flatStyleProp.marginBottom;
       }
-    } else if ('padding' in flatStyleProp) {
-      if (typeof flatStyleProp.padding === 'number') {
-        scrollViewBottomInsetProp = flatStyleProp.padding;
+    } else if ('margin' in flatStyleProp) {
+      if (typeof flatStyleProp.margin === 'number') {
+        scrollViewBottomInsetProp = flatStyleProp.margin;
       }
     }
 
