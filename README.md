@@ -6,7 +6,7 @@
 ![MIT License](https://img.shields.io/npm/l/@alkafinance/react-native-keyboard-aware-scroll-view.svg)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-Extension to React Native ScrollView that prevents inputs from being covered by the keyboard.
+React Native ScrollView extension that prevents inputs from being covered by the keyboard.
 
 <img src="./.github/demo.gif" width="auto" height="640">
 

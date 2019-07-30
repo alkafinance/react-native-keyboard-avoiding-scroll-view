@@ -1,7 +1,7 @@
 {
   "name": "@alkafinance/react-native-keyboard-aware-scroll-view",
   "version": "0.0.0-development",
-  "description": "Extension to React Native ScrollView that prevents inputs from being covered by the keyboard",
+  "description": "React Native ScrollView extension that prevents inputs from being covered by the keyboard",
   "keywords": [
     "react native",
     "keyboard",
