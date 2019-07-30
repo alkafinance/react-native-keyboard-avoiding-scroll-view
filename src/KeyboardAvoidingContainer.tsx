@@ -28,12 +28,12 @@ import {hijackTextInputEvents} from './utils/hijackTextInputEvents';
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
 const KEYBOARD_PADDING = 48;
 
-export interface ExternalKeyboardAwareContainerProps {
+export interface ExternalKeyboardAvoidingContainerProps {
   stickyHeader?: React.ReactNode;
   stickyFooter?: React.ReactNode;
   containerStyle?: StyleProp<ViewStyle>;
 }
-export interface InternalKeyboardAwareContainerProps<
+export interface InternalKeyboardAvoidingContainerProps<
   TScrollViewProps extends ScrollViewProps
 > {
   ScrollViewComponent: React.ComponentType<NoInfer<TScrollViewProps>>;
@@ -42,13 +42,13 @@ export interface InternalKeyboardAwareContainerProps<
   stickyFooterRef: React.Ref<View>;
   stickyFooterProps: ViewProps;
 }
-export interface KeyboardAwareContainerProps<
+export interface KeyboardAvoidingContainerProps<
   TScrollViewProps extends ScrollViewProps
 >
-  extends ExternalKeyboardAwareContainerProps,
-    InternalKeyboardAwareContainerProps<TScrollViewProps> {}
+  extends ExternalKeyboardAvoidingContainerProps,
+    InternalKeyboardAvoidingContainerProps<TScrollViewProps> {}
 
-export const KeyboardAwareContainer = genericMemo(
+export const KeyboardAvoidingContainer = genericMemo(
   <TScrollViewProps extends ScrollViewProps>({
     stickyHeader,
     stickyFooter,
@@ -58,7 +58,7 @@ export const KeyboardAwareContainer = genericMemo(
     scrollViewProps,
     stickyFooterRef,
     stickyFooterProps,
-  }: KeyboardAwareContainerProps<TScrollViewProps>) => {
+  }: KeyboardAvoidingContainerProps<TScrollViewProps>) => {
     return (
       <SafeAreaView style={[styles.container, containerStyle]}>
         {stickyHeader}
@@ -73,7 +73,7 @@ export const KeyboardAwareContainer = genericMemo(
   },
 );
 
-export function useKeyboardAwareContainerProps<
+export function useKeyboardAvoidingContainerProps<
   TScrollViewProps extends ScrollViewProps
 >({
   stickyHeader,
@@ -84,8 +84,8 @@ export function useKeyboardAwareContainerProps<
   contentContainerStyle: contentContainerStyleProp,
   style: styleProp,
   ...passthroughScrollViewProps
-}: TScrollViewProps & ExternalKeyboardAwareContainerProps): Omit<
-  KeyboardAwareContainerProps<TScrollViewProps>,
+}: TScrollViewProps & ExternalKeyboardAvoidingContainerProps): Omit<
+  KeyboardAvoidingContainerProps<TScrollViewProps>,
   'ScrollViewComponent'
 > {
   const scrollViewRef = useRef<React.ComponentType<TScrollViewProps>>(null);

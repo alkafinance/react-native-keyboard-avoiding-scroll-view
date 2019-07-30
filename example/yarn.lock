@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@alkafinance/react-native-keyboard-aware-scroll-view@file:../src":
+"react-native-keyboard-avoiding-scroll-view@file:../src":
   version "0.0.0"
 
 "@babel/code-frame@7.0.0":

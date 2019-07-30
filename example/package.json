@@ -8,7 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@alkafinance/react-native-keyboard-aware-scroll-view": "file:../src",
+    "react-native-keyboard-avoiding-scroll-view": "file:../src",
     "expo": "^33.0.0",
     "react": "16.8.3",
     "react-dom": "^16.8.6",

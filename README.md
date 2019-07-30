@@ -1,9 +1,9 @@
-# @alkafinance/react-native-keyboard-aware-scroll-view
+# react-native-keyboard-avoiding-scroll-view
 
-[![npm package](https://img.shields.io/npm/v/@alkafinance/react-native-keyboard-aware-scroll-view.svg)](https://www.npmjs.org/package/@alkafinance/react-native-keyboard-aware-scroll-view)
-[![CircleCI Status](https://img.shields.io/circleci/project/github/alkafinance/react-native-keyboard-aware-scroll-view/master.svg)](https://circleci.com/gh/alkafinance/workflows/react-native-keyboard-aware-scroll-view/tree/master)
+[![npm package](https://img.shields.io/npm/v/react-native-keyboard-avoiding-scroll-view.svg)](https://www.npmjs.org/package/react-native-keyboard-avoiding-scroll-view)
+[![CircleCI Status](https://img.shields.io/circleci/project/github/alkafinance/react-native-keyboard-avoiding-scroll-view/master.svg)](https://circleci.com/gh/alkafinance/workflows/react-native-keyboard-avoiding-scroll-view/tree/master)
 ![Supports Android and iOS](https://img.shields.io/badge/platforms-android%20|%20ios-lightgrey.svg)
-![MIT License](https://img.shields.io/npm/l/@alkafinance/react-native-keyboard-aware-scroll-view.svg)
+![MIT License](https://img.shields.io/npm/l/react-native-keyboard-avoiding-scroll-view.svg)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 React Native ScrollView extension that prevents inputs from being covered by the keyboard.
@@ -12,22 +12,22 @@ React Native ScrollView extension that prevents inputs from being covered by the
 
 ## Getting started
 
-`$ npm install @alkafinance/react-native-keyboard-aware-scroll-view --save`
+`$ npm install react-native-keyboard-avoiding-scroll-view --save`
 
 ## Usage
 
-Import `KeyboardAwareScrollView`, `KeyboardAwareFlatList`, or `KeyboardAwareSectionList` and use them like the regular `ScrollView`, `FlatList` or `SectionList` components from React Native core. Internally, these components are wrapped in another custom component called `KeyboardAwareContainer`, which is also exported for advanced use cases.
+Import `KeyboardAvoidingScrollView`, `KeyboardAvoidingFlatList`, or `KeyboardAvoidingSectionList` and use them like the regular `ScrollView`, `FlatList` or `SectionList` components from React Native core. Internally, these components are wrapped in another custom component called `KeyboardAvoidingContainer`, which is also exported for advanced use cases.
 
 ```javascript
-import {KeyboardAwareScrollView} from '@alkafinance/react-native-keyboard-aware-scroll-view';
+import {KeyboardAvoidingScrollView} from 'react-native-keyboard-avoiding-scroll-view';
 
 function MyComponent() {
   return (
-    <KeyboardAwareScrollView stickyFooter={<Button />}>
+    <KeyboardAvoidingScrollView stickyFooter={<Button />}>
       <TextInput />
       <TextInput />
       <TextInput />
-    </KeyboardAwareScrollView>
+    </KeyboardAvoidingScrollView>
   )
 }
 ```

@@ -1,4 +1,4 @@
-import {KeyboardAwareScrollView} from '@alkafinance/react-native-keyboard-aware-scroll-view';
+import {KeyboardAvoidingScrollView} from 'react-native-keyboard-avoiding-scroll-view';
 import React from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {Button, Colors, TextInput, Title} from 'react-native-paper';
@@ -6,7 +6,7 @@ import {Button, Colors, TextInput, Title} from 'react-native-paper';
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAwareScrollView
+      <KeyboardAvoidingScrollView
         containerStyle={styles.container}
         contentContainerStyle={styles.content}
         stickyFooter={
@@ -71,7 +71,7 @@ export default function App() {
           placeholder="Phone number"
           textContentType="telephoneNumber"
         />
-      </KeyboardAwareScrollView>
+      </KeyboardAvoidingScrollView>
     </SafeAreaView>
   );
 }
