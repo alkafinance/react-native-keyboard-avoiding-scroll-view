@@ -49,7 +49,7 @@ In addition to the regular `ScrollView`, `FlatList` or `SectionList` props, you 
 
 ### `stickyFooter`
 
-Used to display a persisted view under the scrollable content. Sticky footer is always shown above the keyboard, which could be the desired behaviour for a submit button.
+Used to display a fixed view under the scrollable content. Sticky footer is always shown above the keyboard, which could, for example, be the desired behaviour for a submit button.
 
 | Type              | Required |
 | ----------------- | -------- |
