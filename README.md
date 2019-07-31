@@ -32,11 +32,11 @@ function MyComponent() {
 }
 ```
 
-## API
+## Props
 
-In addition to the regular `ScrollView`, `FlatList` or `SectionList` props, you can also provide the following props for extra customization:
-
-### Props
+- [Inherited `ScrollView` props...](https://facebook.github.io/react-native/docs/scrollview.html#props)
+  - or [inherited `FlatList` props...](https://facebook.github.io/react-native/docs/flatlist#props)
+  - or [inherited `SectionList` props...](https://facebook.github.io/react-native/docs/sectionlist#props)
 
 - [`stickyFooter`](#stickyFooter)
 - [`containerStyle`](#containerStyle)
