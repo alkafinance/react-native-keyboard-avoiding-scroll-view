@@ -1,10 +1,11 @@
 # react-native-keyboard-avoiding-scroll-view
 
-[![npm package](https://img.shields.io/npm/v/react-native-keyboard-avoiding-scroll-view.svg)](https://www.npmjs.org/package/react-native-keyboard-avoiding-scroll-view)
+[![npm version](https://img.shields.io/npm/v/react-native-keyboard-avoiding-scroll-view.svg)](https://www.npmjs.org/package/react-native-keyboard-avoiding-scroll-view)
 [![CircleCI Status](https://img.shields.io/circleci/project/github/alkafinance/react-native-keyboard-avoiding-scroll-view/master.svg)](https://circleci.com/gh/alkafinance/workflows/react-native-keyboard-avoiding-scroll-view/tree/master)
+![license: MIT](https://img.shields.io/npm/l/react-native-keyboard-avoiding-scroll-view.svg)
 ![Supports Android and iOS](https://img.shields.io/badge/platforms-android%20|%20ios-lightgrey.svg)
-![MIT License](https://img.shields.io/npm/l/react-native-keyboard-avoiding-scroll-view.svg)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 React Native ScrollView extension that prevents inputs from being covered by the keyboard.
 
