@@ -1,11 +1,11 @@
-import React from 'react';
-import {SectionList, SectionListProps} from 'react-native';
+import React from 'react'
+import {SectionList, SectionListProps} from 'react-native'
 import {
   ExternalKeyboardAvoidingContainerProps,
   KeyboardAvoidingContainer,
   useKeyboardAvoidingContainerProps,
-} from './KeyboardAvoidingContainer';
-import {generic} from './utils/react';
+} from './KeyboardAvoidingContainer'
+import {generic} from './utils/react'
 
 export interface KeyboardAvoidingSectionListProps<TItem extends {id: string}>
   extends SectionListProps<TItem>,
@@ -17,13 +17,13 @@ export const KeyboardAvoidingSectionList = generic(
   ) => {
     const KeyboardAvoidingContainerProps = useKeyboardAvoidingContainerProps(
       props,
-    );
+    )
 
     return (
       <KeyboardAvoidingContainer
         {...KeyboardAvoidingContainerProps}
         ScrollViewComponent={SectionList}
       />
-    );
+    )
   },
-);
+)

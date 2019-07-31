@@ -12,4 +12,4 @@
  *
  * @see https://github.com/Microsoft/TypeScript/issues/14829#issuecomment-322267089
  */
-export type NoInfer<T> = T & {[K in keyof T]: T[K]};
+export type NoInfer<T> = T & {[K in keyof T]: T[K]}

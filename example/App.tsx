@@ -1,7 +1,7 @@
-import React from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
-import {Button, Colors, TextInput, Title} from 'react-native-paper';
-import {KeyboardAvoidingScrollView} from '../src';
+import React from 'react'
+import {SafeAreaView, StyleSheet, View} from 'react-native'
+import {Button, Colors, TextInput, Title} from 'react-native-paper'
+import {KeyboardAvoidingScrollView} from '../src'
 
 export default function App() {
   return (
@@ -73,7 +73,7 @@ export default function App() {
         />
       </KeyboardAvoidingScrollView>
     </SafeAreaView>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -92,4 +92,4 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: Colors.white,
   },
-});
+})

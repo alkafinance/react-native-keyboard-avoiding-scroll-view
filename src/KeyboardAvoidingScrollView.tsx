@@ -1,10 +1,10 @@
-import React from 'react';
-import {ScrollView, ScrollViewProps} from 'react-native';
+import React from 'react'
+import {ScrollView, ScrollViewProps} from 'react-native'
 import {
   ExternalKeyboardAvoidingContainerProps,
   KeyboardAvoidingContainer,
   useKeyboardAvoidingContainerProps,
-} from './KeyboardAvoidingContainer';
+} from './KeyboardAvoidingContainer'
 
 export interface KeyboardAvoidingScrollViewProps
   extends ScrollViewProps,
@@ -15,12 +15,12 @@ export const KeyboardAvoidingScrollView: React.FC<
 > = props => {
   const KeyboardAvoidingContainerProps = useKeyboardAvoidingContainerProps(
     props,
-  );
+  )
 
   return (
     <KeyboardAvoidingContainer
       {...KeyboardAvoidingContainerProps}
       ScrollViewComponent={ScrollView}
     />
-  );
-};
+  )
+}
