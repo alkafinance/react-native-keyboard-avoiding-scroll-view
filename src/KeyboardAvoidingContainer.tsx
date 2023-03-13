@@ -23,7 +23,6 @@ import {
 import {NoInfer} from './utils/utility-types'
 import {genericMemo} from './utils/react'
 import {measureInWindow} from './utils/measureInWindow'
-import {hijackTextInputEvents} from './utils/hijackTextInputEvents'
 
 const {height: SCREEN_HEIGHT} = Dimensions.get('window')
 const KEYBOARD_PADDING = 48
@@ -218,7 +217,12 @@ export function useKeyboardAvoidingContainerProps<
         if (keyboardLayoutRef.current) return
 
         const {endCoordinates: newKeyboardLayout} = event
-        const newFocusedTextInputNodeHandle = NativeTextInput.State.currentlyFocusedField()
+
+        const newFocusedTextInputNodeHandle = NativeTextInput.State
+          .currentlyFocusedField
+          ? NativeTextInput.State.currentlyFocusedField()
+          : findNodeHandle(NativeTextInput.State.currentlyFocusedField())
+
         const newStickyFooterNodeHandle = findNodeHandle(
           stickyFooterRef.current,
         )
@@ -279,46 +283,6 @@ export function useKeyboardAvoidingContainerProps<
       keyboardWillHideSub.remove()
     }
   }, [updateOffsets])
-
-  useEffect(() => {
-    const textInputEvents = hijackTextInputEvents()
-    // We watch for the switch between two text inputs and update offsets
-    // accordingly.
-    // A switch between two text inputs happens when a keyboard is shown
-    // and another text input is currently being focused on.
-    const sub = textInputEvents.addListener(
-      'textInputDidFocus',
-      newFocusedTextInputNodeHandle => {
-        requestAnimationFrame(async () => {
-          if (
-            !keyboardLayoutRef.current ||
-            !focusedTextInputLayoutRef.current
-          ) {
-            return
-          }
-
-          const newFocusedTextInputLayout = newFocusedTextInputNodeHandle
-            ? await measureInWindow(newFocusedTextInputNodeHandle)
-            : null
-
-          focusedTextInputLayoutRef.current = newFocusedTextInputLayout
-            ? {
-                ...newFocusedTextInputLayout,
-                screenY:
-                  newFocusedTextInputLayout.screenY +
-                  scrollViewOffsetRef.current,
-              }
-            : newFocusedTextInputLayout
-
-          updateOffsets()
-        })
-      },
-    )
-
-    return () => {
-      sub.remove()
-    }
-  }, [scrollViewOffset, updateOffsets])
 
   const scrollViewContentContainerStyle = useMemo(() => {
     const flatContentContainerStyleProp =
