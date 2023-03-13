@@ -1,5 +1,5 @@
 {
-  "name": "@cassianotbnb/react-native-keyboard-sticky-footer-avoiding-scroll-view",
+  "name": "@cassianotbnb/react-native-keyboard-avoiding-scroll-view",
   "version": "0.0.0-development",
   "description": "React Native ScrollView extension that prevents inputs from being covered by the keyboard",
   "keywords": [
@@ -7,7 +7,7 @@
     "keyboard",
     "keyboard avoiding",
     "keyboard aware",
-    "scrollview",
+    "scrollview"
   ],
   "homepage": "https://github.com/cassianotbnb/react-native-keyboard-avoiding-scroll-view#readme",
   "bugs": {
